@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "language_info": {
+      "codemirror_mode": {
+        "name": "python",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8"
+    },
+    "kernelspec": {
+      "name": "python",
+      "display_name": "Python (Pyodide)",
+      "language": "python"
+    }
+  },
+  "nbformat_minor": 4,
+  "nbformat": 4,
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": "import random\n\nnumeros_aleatorios = [random.randint(0, 100) for _ in range(20)]\n\npares = []\nimpares = []\n\nfor num in numeros_aleatorios:\n    if num % 2 == 0:\n        pares.append(num)\n    else:\n        impares.append(num)\n\n\nprint(\"Números aleatorios:\", numeros_aleatorios)\nprint(\"Números pares:\", pares)\nprint(\"Números impares:\", impares)",
+      "metadata": {
+        "tags": [],
+        "collapsed": true,
+        "jupyter": {
+          "outputs_hidden": true
+        },
+        "trusted": true
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "name": "stdout",
+          "text": "Números aleatorios: [16, 86, 64, 4, 58, 20, 2, 77, 65, 65, 66, 10, 26, 87, 17, 17, 64, 12, 93, 65]\nNúmeros pares: [16, 86, 64, 4, 58, 20, 2, 66, 10, 26, 64, 12]\nNúmeros impares: [77, 65, 65, 87, 17, 17, 93, 65]\n",
+          "output_type": "stream"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "numeros = [1, 2, 3, 4, 5, 9, 8, 7, 6, 10]\nnumeros_cuadrados = [num ** 2 for num in numeros]\n\nprint(\"Números originales:\", numeros)\nprint(\"Números al cuadrado:\", numeros_cuadrados)",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "name": "stdout",
+          "text": "Números originales: [1, 2, 3, 4, 5, 9, 8, 7, 6, 10]\nNúmeros al cuadrado: [1, 4, 9, 16, 25, 81, 64, 49, 36, 100]\n",
+          "output_type": "stream"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "def obtener_nombre_mes(numero):\n    meses_del_anio = (\n        \"Enero\", \"Febrero\", \"Marzo\", \"Abril\", \"Mayo\", \"Junio\",\n        \"Julio\", \"Agosto\", \"Septiembre\", \"Octubre\", \"Noviembre\", \"Diciembre\"\n    )\n    \n    if numero >= 1 and numero <= 12:\n        nombre_mes = meses_del_anio[numero - 1]\n        return nombre_mes\n    else:\n        return \"Número de mes inválido\"\n\ndef main():\n    try:\n        numero_mes_str = input(\"Ingrese un número de mes (entre 1 y 12): \")\n        numero_mes = int(numero_mes_str)\n        \n        nombre_mes = obtener_nombre_mes(numero_mes)\n        print(\"El nombre del mes es:\", nombre_mes)\n    except ValueError:\n        print(\"Por favor, ingrese un número válido.\")\n\nmain()\n",
+      "metadata": {
+        "collapsed": true,
+        "jupyter": {
+          "outputs_hidden": true
+        },
+        "tags": [],
+        "trusted": true
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "ename": "<class 'TypeError'>",
+          "evalue": "int() argument must be a string, a bytes-like object or a real number, not 'PyodideFuture'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "Cell \u001b[0;32mIn[13], line 23\u001b[0m\n\u001b[1;32m     20\u001b[0m     \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mValueError\u001b[39;00m:\n\u001b[1;32m     21\u001b[0m         \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mPor favor, ingrese un número válido.\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[0;32m---> 23\u001b[0m \u001b[43mmain\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\n",
+            "Cell \u001b[0;32mIn[13], line 16\u001b[0m, in \u001b[0;36mmain\u001b[0;34m()\u001b[0m\n\u001b[1;32m     14\u001b[0m \u001b[38;5;28;01mtry\u001b[39;00m:\n\u001b[1;32m     15\u001b[0m     numero_mes_str \u001b[38;5;241m=\u001b[39m \u001b[38;5;28minput\u001b[39m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mIngrese un número de mes (entre 1 y 12): \u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[0;32m---> 16\u001b[0m     numero_mes \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mint\u001b[39;49m\u001b[43m(\u001b[49m\u001b[43mnumero_mes_str\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     18\u001b[0m     nombre_mes \u001b[38;5;241m=\u001b[39m obtener_nombre_mes(numero_mes)\n\u001b[1;32m     19\u001b[0m     \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mEl nombre del mes es:\u001b[39m\u001b[38;5;124m\"\u001b[39m, nombre_mes)\n",
+            "\u001b[0;31mTypeError\u001b[0m: int() argument must be a string, a bytes-like object or a real number, not 'PyodideFuture'"
+          ],
+          "output_type": "error"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "def contar_palabras(cadena):\n    if isinstance(cadena, str):\n        palabras = cadena.split()\n        cantidad_palabras = len(palabras)\n        return cantidad_palabras\n    else:\n        return \"Entrada inválida\"\n\ntry:\n    frase = input(\"Ingresa una frase: \")\n    cantidad_palabras_frase = contar_palabras(frase)\n    print(\"Cantidad de palabras:\", cantidad_palabras_frase)\n\n    frase2 = \"Medir el progreso en un proyecto de programación por líneas de código, es como medir la construcción de un aeroplano por su peso.\"\n    cantidad_palabras_frase2 = contar_palabras(frase2)\n    print(\"Cantidad de palabras en la segunda frase:\", cantidad_palabras_frase2)\nexcept Exception as e:\n    print(\"Error:\", e)\n",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "name": "stdout",
+          "text": "Cantidad de palabras: Entrada inválida\nCantidad de palabras en la segunda frase: 23\n",
+          "output_type": "stream"
+        },
+        {
+          "output_type": "stream",
+          "name": "stdin",
+          "text": "Ingresa una frase:  hola\n"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": "def elevar_a_cuarta_potencia(lista):\n    return [num ** 4 for num in lista]\n\nListaUno = [1, 3, 4, 5, 7, 8, 9, 2, 5, 6, 4, 12, 20, 3, 7, 9, 0, 1, 4, 3, 8]\n\nlista_repetidos = []\nconjunto = set()\nfor num in ListaUno:\n    if num in conjunto:\n        lista_repetidos.append(num)\n    else:\n\nlista_potencia_cuatro = elevar_a_cuarta_potencia(lista_repetidos)\n\nListaUno.sort()\n\nlista_repetidos.sort(reverse=True)\n\nprint(\"ListaUno ordenada:\", ListaUno)\nprint(\"Lista de repetidos:\", lista_repetidos)\nprint(\"Lista de repetidos elevados a la cuarta potencia:\", lista_potencia_cuatro)",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": "valores = []\nfor _ in range(10):\n    valor = int(input(\"Ingresa un valor entero: \"))\n    valores.append(valor)\n\nnumero_menor = min(valores)\nnumero_mayor = max(valores)\n\nvalores.remove(numero_menor)\nvalores.remove(numero_mayor)\n\ncuadrado_menor = numero_menor ** 2\ncuadrado_mayor = numero_mayor ** 2\n\nvalores.append(cuadrado_menor)\nvalores.append(cuadrado_mayor)\n\nprint(\"Lista original:\", valores)\nprint(\"Número menor:\", numero_menor)\nprint(\"Número mayor:\", numero_mayor)\nprint(\"Resultado final de la lista:\", valores)",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
